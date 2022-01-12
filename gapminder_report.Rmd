@@ -1,0 +1,61 @@
+---
+title: "Gapminder Analysis"
+author: "Joel Nitta"
+date: "1/12/2022"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+tar_load(c(
+  gapminder,
+  life_exp_mods
+))
+```
+
+## Data
+
+The `gapminder` dataset includes `r gapminder$country %>% n_distinct()` countries with per capita GDP, population, and life expectancy data from `r gapminder$year %>% min()` to `r gapminder$year %>% max()`.
+
+## Methods
+
+We fit a linear model of life expectancy by year for each country.
+
+## Results
+
+Asian countries showed the biggest gains in life expectancy over time, with European countries the least.
+African and American countries have a wide spread of values.
+
+```{r plot-mod, echo = FALSE, include = TRUE, fig.cap= "Results of modeling life expectancy over time by country. Only significant models shown (*p* < 0.05)."}
+# Tidy modeling output data
+life_exp_mods_for_plot <-
+life_exp_mods %>%
+  filter(term == "year_rel", p.value < 0.05) %>%
+  left_join(
+    unique(select(gapminder, country, continent)), 
+    by = "country"
+  ) %>%
+  mutate(country = fct_reorder(country, estimate))
+
+# Plot the modeling results
+ggplot(
+  life_exp_mods_for_plot,
+  aes(x = estimate, y = country, fill = continent)) +
+  geom_errorbarh(
+    aes(xmax = estimate + std.error, xmin = estimate - std.error),
+    color = "grey40") +
+  geom_col() +
+  scale_x_continuous(name = "Change in life expectancy per year") +
+  scale_fill_brewer(palette = "Set1", name = "Continent") +
+  theme_bw() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank()
+  )
+```
+
