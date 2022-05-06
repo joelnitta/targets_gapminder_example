@@ -8,7 +8,13 @@ An example of using the [targets R package](https://github.com/ropensci/targets)
 
 ## Running the example
 
-After installing packages, run `targets::tar_make()`. The analysis will run and a final report will be produced as `gapminder_report.html`.
+After installing packages, run `targets::tar_make()`. The analysis will run and a final report will be produced as `index.html`.
+
+## Continuous integration
+
+This project [uses GitHub Actions to run the targets workflow](https://github.com/wlandau/targets-minimal#continuous-deployment) and generate the report each time a commit is pushed to the repo.
+
+The report can be viewed at https://joelnitta.github.io/targets_gapminder_example/
 
 ## License
 
