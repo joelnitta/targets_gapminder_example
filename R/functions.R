@@ -1,6 +1,6 @@
 #' Fit a model of life expectancy by year
 #'
-#' @param data Tibbe; Input gapminder data for one country. Must include columns
+#' @param data Tibble; Input gapminder data for one country. Must include columns
 #' 'lifeExp', 'year_rel', and 'country'
 #'
 #' @return Tibble; results of fitting a linear model of life expectancy by year
