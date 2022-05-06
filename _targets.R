@@ -30,6 +30,6 @@ list(
   # Report results ----
   tar_render(
     life_exp_report,
-    "gapminder_report.Rmd"
+    "index.Rmd"
   )
 )

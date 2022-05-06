@@ -1,4 +1,5 @@
 .targets-files
+.targets-runs/
 _targets/meta/process
 _targets/meta/progress
 _targets/objects/gapminder
@@ -146,4 +147,5 @@ _targets/objects/life_exp_mods_f71c0829
 _targets/objects/life_exp_mods_f8abcc77
 _targets/objects/life_exp_mods_fa58b36b
 gapminder_report.html
+index.html
 _targets/meta/meta
