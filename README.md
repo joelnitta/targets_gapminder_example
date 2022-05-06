@@ -8,7 +8,7 @@ An example of using the [targets R package](https://github.com/ropensci/targets)
 
 ## Running the example
 
-After installing packages, run `targets::tar_make()`. The analysis will run and a final report will be produced as `gapminder_report.html`.
+After installing packages, run `targets::tar_make()`. The analysis will run and a final report will be produced as `index.html`.
 
 ## Continuous integration
 
