@@ -1,7 +1,7 @@
 ---
 title: "Gapminder Analysis"
 author: "Joel Nitta"
-date: "1/12/2022"
+date: "`r Sys.Date()`"
 output: html_document
 editor_options: 
   chunk_output_type: console
